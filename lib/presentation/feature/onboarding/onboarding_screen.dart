@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:introduction_screen/introduction_screen.dart';
+import 'package:pegadaian_digital/presentation/feature/login/bloc/login_bloc.dart';
+import 'package:pegadaian_digital/presentation/feature/login/login_screen.dart';
 
 import '../../../helpers/colors_custom.dart';
 import '../../../injection.dart';
@@ -195,14 +197,14 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
         ),
         onPressed: () {
           if (label == 'Masuk') {
-            // Navigator.of(context).pushReplacement(
-            //   MaterialPageRoute(
-            //     builder: (_) => BlocProvider(
-            //       create: (context) => getIt.get<RegisterBloc>(),
-            //       child: RegisterScreen(),
-            //     ),
-            //   ),
-            // );
+            Navigator.of(context).pushReplacement(
+              MaterialPageRoute(
+                builder: (_) => BlocProvider(
+                  create: (context) => getIt.get<LoginBloc>(),
+                  child: LoginScreen(),
+                ),
+              ),
+            );
           } else {
             Navigator.of(context).push(
               MaterialPageRoute(
